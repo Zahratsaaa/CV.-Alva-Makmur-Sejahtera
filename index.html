@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV. Alva Makmur Sejahtera — Konstruksi & Desain Interior</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/Cover.png">
+<style>
+/* ==========================================================================
+   CARA EDIT CEPAT
+   1. Buka file ini dengan text editor apapun (Notepad, VS Code, dll).
+   2. Cari bagian "KONFIGURASI PERUSAHAAN" di dalam tag <script> paling
+      bawah — ubah nama perusahaan, nomor WA, email, alamat di SATU
+      tempat itu saja. Seluruh halaman akan otomatis terisi.
+   3. Folder "assets/" berisi foto yang diambil dari Company Profile CV.
+      Alva Makmur Sejahtera — simpan file ini SATU FOLDER dengan folder
+      "assets" tersebut agar semua gambar tampil.
+   ========================================================================== */
+
+:root{
+  --ink:#12242a;
+  --teal:#4f93a0;
+  --teal-deep:#2c6672;
+  --teal-pale:#bfe0e6;
+  --paper:#f7f5ef;
+  --paper-dim:#eee9de;
+  --charcoal:#20282a;
+  --gold:#c69a3d;
+  --gold-light:#e0bd66;
+  --muted:#66757a;
+  --radius:2px;
+  --max:1180px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--charcoal);
+  background:var(--paper);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.01em;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+.mono{font-family:'JetBrains Mono',monospace;}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+@media (prefers-reduced-motion: reduce){*{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}}
+
+/* ---------- header ---------- */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:transparent;
+  transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
+  padding:22px 0;
+}
+header.scrolled{
+  background:var(--ink);
+  padding:14px 0;
+  box-shadow:0 6px 24px rgba(0,0,0,.18);
+}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;}
+.brand-mark{
+  width:40px;height:40px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:1.5px solid var(--teal-pale);background:#0c1417;
+  display:flex;align-items:center;justify-content:center;
+}
+.brand-mark img{width:100%;height:100%;object-fit:cover;}
+.brand-name{font-family:'Space Grotesk';font-weight:700;font-size:15px;letter-spacing:.01em;line-height:1.2;}
+.brand-name small{display:block;font-family:'JetBrains Mono';font-weight:400;font-size:9.5px;letter-spacing:.1em;color:var(--teal-pale);margin-top:2px;}
+nav{display:flex;align-items:center;gap:30px;}
+nav a.navlink{
+  color:#fff;font-size:13px;font-family:'JetBrains Mono';letter-spacing:.04em;
+  position:relative;padding-bottom:4px;opacity:.85;
+}
+nav a.navlink::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--gold-light);transition:width .25s ease;}
+nav a.navlink:hover{opacity:1;}
+nav a.navlink:hover::after{width:100%;}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold);color:#181410;font-weight:600;font-size:13.5px;
+  padding:11px 20px;border-radius:2px;border:none;cursor:pointer;
+  transition:background .2s ease, transform .2s ease;white-space:nowrap;
+}
+.cta-btn:hover{background:var(--gold-light);transform:translateY(-1px);}
+.burger{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  background:radial-gradient(ellipse at 75% 20%, var(--teal) 0%, var(--teal-deep) 55%, var(--ink) 100%);
+  color:#fff;
+  padding:170px 0 90px;
+  overflow:hidden;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(191,224,230,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(191,224,230,.10) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:linear-gradient(to bottom, black, transparent 85%);
+}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;}
+.eyebrow{
+  font-family:'JetBrains Mono';font-size:12px;letter-spacing:.16em;color:var(--teal-pale);
+  display:flex;align-items:center;gap:10px;margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--teal-pale);}
+.hero h1{font-size:clamp(32px,4.4vw,54px);line-height:1.1;margin-bottom:22px;}
+.hero h1 em{font-style:normal;color:var(--gold-light);}
+.hero p.lead{font-size:16.5px;color:#d8e6ea;max-width:480px;margin-bottom:34px;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.ghost-btn{
+  border:1px solid rgba(255,255,255,.35);color:#fff;padding:11px 22px;border-radius:2px;
+  font-size:13.5px;font-weight:500;transition:border-color .2s, background .2s;
+}
+.ghost-btn:hover{border-color:var(--teal-pale);background:rgba(191,224,230,.08);}
+
+.blueprint-art{position:relative;}
+.blueprint-art img{
+  width:100%;height:auto;display:block;
+  border-radius:4px;
+  border:1px solid rgba(191,224,230,.35);
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+.draw-line{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.6s ease forwards .3s;}
+@keyframes draw{to{stroke-dashoffset:0;}}
+.dim-label{font-family:'JetBrains Mono',monospace;font-size:9px;fill:var(--teal-pale);opacity:0;animation:fadein .6s ease forwards 2.2s;}
+@keyframes fadein{to{opacity:.85;}}
+
+/* ---------- ticker ---------- */
+.ticker{
+  background:var(--gold);color:#181410;overflow:hidden;white-space:nowrap;
+  border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12);
+}
+.ticker-track{display:inline-flex;animation:ticker 26s linear infinite;padding:10px 0;}
+.ticker-track span{
+  font-family:'JetBrains Mono';font-size:12.5px;letter-spacing:.08em;font-weight:500;
+  padding:0 26px;display:inline-flex;align-items:center;gap:26px;
+}
+.ticker-track span::after{content:"◆";font-size:9px;opacity:.6;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ---------- section shell ---------- */
+section{padding:96px 0;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head .eyebrow{color:var(--gold);}
+.section-head .eyebrow::before{background:var(--gold);}
+.section-head h2{font-size:clamp(26px,3.2vw,38px);color:var(--ink);}
+.section-head p{color:var(--muted);margin-top:14px;font-size:15.5px;}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+.section-head.center .eyebrow{justify-content:center;}
+.section-head.center .eyebrow::before{display:none;}
+
+/* ---------- services ---------- */
+.services{background:var(--paper);}
+.service-block{
+  border-top:1px solid rgba(28,32,36,.14);
+  padding:44px 0;
+  display:grid;grid-template-columns:280px 1fr;gap:40px;
+}
+.service-block:last-child{border-bottom:1px solid rgba(28,32,36,.14);}
+.service-head .sheet-no{
+  font-family:'JetBrains Mono';font-size:12px;color:var(--gold);letter-spacing:.08em;margin-bottom:10px;display:block;
+}
+.service-head h3{font-size:23px;margin-bottom:10px;}
+.service-head p{color:var(--muted);font-size:14.5px;}
+.service-items{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;}
+.service-item{
+  padding:16px 0;border-top:1px dashed rgba(28,32,36,.18);
+  display:flex;gap:14px;
+}
+.service-item:nth-child(1),.service-item:nth-child(2){border-top:none;}
+.service-item .tick{font-family:'JetBrains Mono';font-size:11px;color:var(--muted);padding-top:3px;}
+.service-item h4{font-size:14.5px;margin-bottom:4px;}
+.service-item p{font-size:13.5px;color:var(--muted);}
+
+/* ---------- about / stats ---------- */
+.about{background:var(--ink);color:#fff;}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.about h2{font-size:clamp(24px,3vw,34px);margin-bottom:18px;}
+.about p{color:#c3ccd0;font-size:15px;max-width:480px;margin-bottom:14px;}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border-radius:4px;overflow:hidden;margin-top:20px;}
+.stat{background:var(--teal-deep);padding:28px 22px;}
+.stat .num{font-family:'Space Grotesk';font-size:32px;font-weight:700;color:var(--gold-light);}
+.stat .label{font-family:'JetBrains Mono';font-size:10.5px;color:var(--teal-pale);letter-spacing:.05em;margin-top:6px;}
+.legal-badge{
+  display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+  font-family:'JetBrains Mono';font-size:11px;color:var(--teal-pale);
+  border:1px solid rgba(191,224,230,.3);padding:8px 14px;border-radius:2px;
+}
+
+/* ---------- visi misi ---------- */
+.visimisi{background:var(--paper-dim);}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+.vm-card{background:var(--paper);border:1px solid rgba(28,32,36,.1);border-radius:6px;padding:36px;}
+.vm-chip{
+  display:inline-block;background:var(--teal);color:#fff;font-family:'Space Grotesk';font-weight:700;
+  font-size:14px;padding:7px 22px;border-radius:20px;margin-bottom:20px;
+}
+.vm-card ul{list-style:none;}
+.vm-card li{position:relative;padding-left:22px;margin-bottom:14px;font-size:14.5px;color:var(--charcoal);}
+.vm-card li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;border-radius:50%;background:var(--gold);}
+.vm-card li strong{color:var(--ink);}
+
+/* ---------- team ---------- */
+.team{background:var(--paper);}
+.org-chart{display:flex;flex-direction:column;align-items:center;gap:0;}
+.org-level{display:flex;gap:24px;flex-wrap:wrap;justify-content:center;position:relative;padding-top: 32px;width:fit-content;max-width:100%;margin:0 auto;}
+.org-connector{width:1px;height:28px;background:rgba(28,32,36,.25);}
+.org-level::before{
+  content:"";position:absolute;top:0;left:105px;right:105px;height:1px;
+  background:rgba(28,32,36,.25);
+}
+.org-level .org-card{position:relative;}
+.org-level .org-card::before{
+  content:"";position:absolute;top:-32px;left:50%;width:1px;height:32px;
+  background:rgba(28,32,36,.25);
+}
+.org-card{
+  background:var(--paper-dim);border:1px solid rgba(28,32,36,.12);border-radius:6px;
+  padding:18px 26px;text-align:center;min-width:210px;
+}
+.org-card.lead{background:var(--ink);color:#fff;border-color:var(--ink);}
+.org-card .name{font-family:'Space Grotesk';font-weight:700;font-size:15px;margin-bottom:4px;}
+.org-card .role{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.05em;color:var(--gold);}
+.org-card.lead .role{color:var(--teal-pale);}
+
+/* ---------- portfolio ---------- */
+.portfolio{background:var(--paper-dim);}
+.portfolio-feature{border-radius:6px;overflow:hidden;margin-bottom:36px;position:relative;}
+.portfolio-feature img{width:100%;height:420px;object-fit:cover;}
+.portfolio-feature .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:26px 32px;
+  background:linear-gradient(to top, rgba(18,36,42,.88), transparent);
+  color:#fff;
+}
+.portfolio-feature .cap span{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;color:var(--teal-pale);}
+.portfolio-feature .cap h3{font-size:22px;margin-top:6px;}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.pf-card{border-radius:6px;overflow:hidden;background:var(--paper);border:1px solid rgba(28,32,36,.1);}
+.pf-card img{height:220px;object-fit:cover;width:100%;}
+.pf-card .pf-txt{padding:16px 18px;}
+.pf-card .pf-txt span{font-family:'JetBrains Mono';font-size:10.5px;color:var(--gold);letter-spacing:.06em;}
+.pf-card .pf-txt h4{font-size:15.5px;margin-top:4px;}
+
+/* ---------- project selector tabs ---------- */
+.project-tabs{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:44px;
+}
+.project-tab{
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;
+  padding:9px 16px;border-radius:2px;border:1px solid rgba(28,32,36,.18);
+  background:transparent;color:var(--charcoal);cursor:pointer;
+  transition:background .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+.project-tab:hover{border-color:var(--gold);}
+.project-tab.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+.project-title-bar{
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  margin-top:26px;flex-wrap:wrap;
+}
+.project-title-bar h3{font-size:19px;color:var(--ink);}
+.project-title-bar span{font-family:'JetBrains Mono';font-size:12px;color:var(--muted);}
+
+/* ---------- portfolio slider ---------- */
+.portfolio-slider{position:relative;margin-top:20px;}
+.slider-viewport{overflow:hidden;border-radius:6px;}
+.slider-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.slide{min-width:100%;flex-shrink:0;position:relative;}
+.slide img{width:100%;height:460px;object-fit:contain;display:block;}
+.slide .slide-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:24px 30px;
+  background:linear-gradient(to top, rgba(18,36,42,.88), transparent);
+  color:#fff;
+}
+.slide .slide-cap span{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;color:var(--teal-pale);}
+.slide .slide-cap h4{font-size:19px;margin-top:6px;}
+.slider-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(18,36,42,.55);color:#fff;font-size:18px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .2s ease;z-index:5;
+}
+.slider-btn:hover{background:var(--gold);color:#181410;}
+.slider-btn.prev{left:14px;}
+.slider-btn.next{right:14px;}
+.slider-dots{display:flex;justify-content:center;gap:9px;margin-top:20px;}
+.slider-dot{width:9px;height:9px;border-radius:50%;background:rgba(28,32,36,.22);cursor:pointer;border:none;padding:0;transition:background .2s ease, transform .2s ease;}
+.slider-dot.active{background:var(--gold);transform:scale(1.15);}
+@media (max-width:760px){
+  .slide img{height:280px;}
+  .slider-btn{width:36px;height:36px;font-size:15px;}
+}
+
+/* ---------- client logos ---------- */
+.client-logo-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:26px;}
+.client-logo-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:8px;
+  padding:20px 14px;display:flex;flex-direction:column;align-items:center;gap:12px;
+  transition:border-color .2s ease, background .2s ease;
+}
+.client-logo-card:hover{border-color:var(--gold);background:rgba(255,255,255,.08);}
+.client-logo-card img{width:100%;max-width:96px;height:72px;object-fit:contain;border-radius:4px;background:#fff;padding:6px;}
+.client-logo-card span{font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.03em;color:#c7d0d3;text-align:center;}
+@media (max-width:760px){
+  .client-logo-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ---------- clients ---------- */
+.clients{background:var(--ink);color:#fff;}
+.clients .section-head h2{color:#fff;}
+.clients .section-head p{color:#b6c0c4;}
+.client-badges{display:flex;flex-wrap:wrap;gap:14px;}
+.client-badge{
+  border:1px solid rgba(255,255,255,.18);border-radius:30px;padding:12px 24px;
+  font-family:'Space Grotesk';font-weight:600;font-size:14px;color:#e8ecec;
+  background:rgba(255,255,255,.04);
+}
+
+/* ---------- contact ---------- */
+.contact{background:var(--paper);}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;}
+.contact-card{background:var(--paper-dim);border:1px solid rgba(28,32,36,.12);border-radius:4px;padding:36px;}
+.contact-card h3{font-size:20px;margin-bottom:22px;}
+.contact-row{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start;}
+.contact-row .ic{
+  width:34px;height:34px;border:1px solid rgba(28,32,36,.18);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);
+}
+.contact-row .txt strong{display:block;font-size:14px;margin-bottom:2px;}
+.contact-row .txt span, .contact-row .txt a{font-size:13.5px;color:var(--muted);}
+.map-frame{border:1px solid rgba(28,32,36,.12);border-radius:4px;overflow:hidden;min-height:340px;}
+.map-frame iframe{width:100%;height:100%;min-height:340px;border:0;display:block;}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#8b939b;padding:34px 0;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px;}
+.footer-inner a{opacity:.85;}
+.footer-inner a:hover{opacity:1;color:#fff;}
+.footer-links{display:flex;gap:22px;font-family:'JetBrains Mono';font-size:12px;flex-wrap:wrap;}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .blueprint-art{order:-1;max-width:420px;}
+  .service-block{grid-template-columns:1fr;}
+  .service-items{grid-template-columns:1fr;}
+  .service-item:nth-child(2){border-top:1px dashed rgba(28,32,36,.18);}
+  .about-inner{grid-template-columns:1fr;}
+  .contact-inner{grid-template-columns:1fr;}
+  .vm-grid{grid-template-columns:1fr;}
+  .portfolio-grid{grid-template-columns:1fr 1fr;}
+  .org-level{flex-direction:column;align-items:center;}
+}
+@media (max-width:760px){
+  nav{
+    position:fixed;top:0;right:0;height:100vh;width:78%;max-width:320px;
+    background:var(--ink);flex-direction:column;align-items:flex-start;
+    padding:100px 32px 40px;gap:26px;transform:translateX(100%);transition:transform .35s ease;
+  }
+  nav.open{transform:translateX(0);}
+  .burger{display:block;}
+  .cta-btn.desktop-only{display:none;}
+  .portfolio-grid{grid-template-columns:1fr;}
+  .portfolio-feature img{height:260px;}
+}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap header-row">
+    <a href="#top" class="brand">
+      <span class="brand-mark"><img src="images/LogoCV.png" alt="Logo CV. Alva Makmur Sejahtera"></span>
+      <span class="brand-name" data-field="companyNameShort">CV. Alva Makmur Sejahtera<small data-field="companyTagline">KONSTRUKSI & DESAIN INTERIOR</small></span>
+    </a>
+    <nav id="siteNav">
+      <a class="navlink" href="#layanan">LAYANAN</a>
+      <a class="navlink" href="#tentang">TENTANG</a>
+      <a class="navlink" href="#visimisi">VISI & MISI</a>
+      <a class="navlink" href="#tim">TIM</a>
+      <a class="navlink" href="#proyek">PROYEK</a>
+      <a class="navlink" href="#kontak">KONTAK</a>
+      <a class="cta-btn" data-field="waLinkHero" target="_blank" rel="noopener">HUBUNGI KAMI</a>
+    </nav>
+    <button class="burger" id="burgerBtn" aria-label="Buka menu">☰</button>
+  </div>
+</header>
+
+<div id="top"></div>
+<section class="hero" style="padding-top:170px;">
+  <div class="hero-grid"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow reveal">KONSTRUKSI &amp; DESAIN INTERIOR — YOGYAKARTA</div>
+      <h1 class="reveal">Membangun ruang, <em>mewujudkan visi</em> Anda.</h1>
+      <p class="lead reveal">Kami mengutamakan inovasi dan profesionalitas dalam desain dan rancang bangun untuk terus meningkatkan produk kami. Kami percaya bahwa kolaborasi dan komitmen terhadap keunggulan adalah kunci kesuksesan jangka panjang.</p>
+      <div class="hero-actions reveal">
+        <a class="cta-btn" data-field="waLinkHero" target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
+        <a class="ghost-btn" href="#layanan">Lihat Layanan Kami</a>
+      </div>
+    </div>
+    <div class="blueprint-art reveal">
+      <img src="images/Cover.png" alt="Rumah hasil desain dan konstruksi CV. Alva Makmur Sejahtera">
+    </div>
+  </div>
+</section>
+
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span data-field="companyNameShort">CV. Alva Makmur Sejahtera</span>
+    <span data-field="companyTagline">KONSTRUKSI & DESAIN INTERIOR</span>
+    <span data-field="companyNameShort">CV. Alva Makmur Sejahtera</span>
+    <span data-field="companyTagline">KONSTRUKSI & DESAIN INTERIOR</span>
+    <span data-field="companyNameShort">CV. Alva Makmur Sejahtera</span>
+    <span data-field="companyTagline">KONSTRUKSI & DESAIN INTERIOR</span>
+    <span data-field="companyNameShort">CV. Alva Makmur Sejahtera</span>
+    <span data-field="companyTagline">KONSTRUKSI & DESAIN INTERIOR</span>
+  </div>
+</div>
+
+<section class="services" id="layanan">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">LAYANAN KAMI</div>
+      <h2>Lima lini layanan, satu tanggung jawab penuh.</h2>
+      <p>Kami mengerjakan pembangunan, pemeliharaan, dan/atau renovasi rumah, gedung sarana pendidikan, hingga gedung perkantoran — dengan pendekatan kolaboratif yang berfokus pada kebutuhan klien, kontrol anggaran yang transparan, serta ketepatan waktu pelaksanaan.</p>
+    </div>
+
+    <div class="service-block reveal">
+      <div class="service-head">
+        <span class="sheet-no mono">A · DESAIN RANCANG BANGUN</span>
+        <h3>Perencanaan & Desain</h3>
+        <p>Menerjemahkan kebutuhan klien menjadi rancangan yang matang, estetis, dan siap dibangun.</p>
+      </div>
+      <div class="service-items">
+        <div class="service-item"><span class="tick mono">01</span><div><h4>Konsultasi & Konsep Desain</h4><p>Merumuskan gaya arsitektur dan tata letak ruang sesuai kebutuhan klien.</p></div></div>
+        <div class="service-item"><span class="tick mono">02</span><div><h4>Gambar Kerja (DED)</h4><p>Dokumen teknis komprehensif mencakup detail arsitektur, struktur, dan MEP.</p></div></div>
+        <div class="service-item"><span class="tick mono">03</span><div><h4>Perizinan Bangunan Gedung</h4><p>Pendampingan pengurusan perizinan resmi bangunan (PBG).</p></div></div>
+        <div class="service-item"><span class="tick mono">04</span><div><h4>Rencana Anggaran Biaya (RAB)</h4><p>Estimasi biaya material dan jasa yang terukur dan transparan.</p></div></div>
+        <div class="service-item"><span class="tick mono">05</span><div><h4>Visualisasi 3D</h4><p>Presentasi visual melalui pemodelan 3D sebelum proses pembangunan.</p></div></div>
+      </div>
+    </div>
+
+    <div class="service-block reveal">
+      <div class="service-head">
+        <span class="sheet-no mono">B · PELAKSANAAN</span>
+        <h3>Konstruksi & Pembangunan</h3>
+        <p>Mewujudkan rancangan menjadi bangunan nyata dengan manajemen proyek terstruktur serta standar mutu dan K3 yang ketat.</p>
+      </div>
+      <div class="service-items">
+        <div class="service-item"><span class="tick mono">01</span><div><h4>Persiapan & Mobilisasi Lapangan</h4><p>Land clearing hingga penyiapan fasilitas penunjang proyek.</p></div></div>
+        <div class="service-item"><span class="tick mono">02</span><div><h4>Pekerjaan Struktur</h4><p>Fondasi, kolom, balok, dan plat lantai yang kokoh dan teruji.</p></div></div>
+        <div class="service-item"><span class="tick mono">03</span><div><h4>Pekerjaan Arsitektural & Finishing</h4><p>Instalasi dinding, lantai, pengecatan, hingga plafon.</p></div></div>
+        <div class="service-item"><span class="tick mono">04</span><div><h4>Instalasi MEP</h4><p>Sistem kelistrikan, tata cahaya, serta utilitas air bersih dan limbah.</p></div></div>
+        <div class="service-item"><span class="tick mono">05</span><div><h4>Kontrol Anggaran & Jadwal</h4><p>Pemantauan progres agar selesai tepat waktu dan sesuai anggaran.</p></div></div>
+      </div>
+    </div>
+
+    <div class="service-block reveal">
+      <div class="service-head">
+        <span class="sheet-no mono">C · KONSULTAN BANGUNAN</span>
+        <h3>Pendampingan Teknis</h3>
+        <p>Pendampingan dari sisi struktur dan konstruksi agar setiap keputusan pembangunan tepat dan terukur.</p>
+      </div>
+      <div class="service-items">
+        <div class="service-item"><span class="tick mono">01</span><div><h4>Kajian Kelayakan Struktur</h4><p>Pemeriksaan kondisi struktur sebelum proses pembangunan atau renovasi.</p></div></div>
+        <div class="service-item"><span class="tick mono">02</span><div><h4>Pengawasan & Supervisi Proyek</h4><p>Kontrol kualitas berlapis di setiap tahap pekerjaan.</p></div></div>
+        <div class="service-item"><span class="tick mono">03</span><div><h4>Manajemen Proyek Terstruktur</h4><p>Perencanaan jadwal dan sumber daya yang terorganisir.</p></div></div>
+        <div class="service-item"><span class="tick mono">04</span><div><h4>Estimasi Biaya (QS)</h4><p>Perhitungan volume dan biaya pekerjaan secara akurat.</p></div></div>
+      </div>
+    </div>
+
+    <div class="service-block reveal">
+      <div class="service-head">
+        <span class="sheet-no mono">D · DESAIN INTERIOR</span>
+        <h3>Ruang Dalam yang Bermakna</h3>
+        <p>Merancang interior yang fungsional, estetis, dan kontekstual — mengintegrasikan ergonomi, identitas merek, dan pengalaman pengguna.</p>
+      </div>
+      <div class="service-items">
+        <div class="service-item"><span class="tick mono">01</span><div><h4>Perencanaan Tata Ruang</h4><p>Menata ruang dalam agar nyaman ditinggali dan bernilai investasi.</p></div></div>
+        <div class="service-item"><span class="tick mono">02</span><div><h4>Pemilihan Material & Furnitur</h4><p>Material berkualitas dan berkelanjutan untuk hasil tahan lama.</p></div></div>
+        <div class="service-item"><span class="tick mono">03</span><div><h4>Visualisasi & Artist Impression</h4><p>Gambaran suasana ruang sebelum dieksekusi.</p></div></div>
+        <div class="service-item"><span class="tick mono">04</span><div><h4>Fit-Out & Detailing Akhir</h4><p>Penyelesaian detail pengerjaan yang rapi hingga siap huni.</p></div></div>
+      </div>
+    </div>
+
+    <div class="service-block reveal">
+      <div class="service-head">
+        <span class="sheet-no mono">E · RENOVASI & PERBAIKAN</span>
+        <h3>Pembaruan & Ekspansi</h3>
+        <p>Merombak, memperbaiki, dan memodernisasi ruang untuk nilai estetika dan fungsi maksimal.</p>
+      </div>
+      <div class="service-items">
+        <div class="service-item"><span class="tick mono">01</span><div><h4>Survei & Analisis Kelayakan</h4><p>Pengecekan struktur bangunan lama sebelum proses renovasi.</p></div></div>
+        <div class="service-item"><span class="tick mono">02</span><div><h4>Redesain Tata Ruang</h4><p>Optimalisasi denah agar lebih fungsional sesuai kebutuhan baru.</p></div></div>
+        <div class="service-item"><span class="tick mono">03</span><div><h4>Makeover Fasad Eksterior</h4><p>Modernisasi tampilan luar bangunan sesuai tren masa kini.</p></div></div>
+        <div class="service-item"><span class="tick mono">04</span><div><h4>Layanan Purna Jual</h4><p>Perawatan dan perbaikan responsif pasca serah terima proyek.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="tentang">
+  <div class="wrap about-inner">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--teal-pale)"><span style="background:var(--teal-pale)"></span>TENTANG KAMI</div>
+      <h2>Kami melayani dengan sepenuh hati.</h2>
+      <p data-field="aboutText">CV. Alva Makmur Sejahtera adalah sebuah perusahaan yang berdedikasi dalam bidang konstruksi dan desain interior. Kami menggabungkan keahlian arsitektur yang handal dengan inovasi dalam desain untuk menciptakan ruang yang tidak hanya fungsional tetapi juga estetis. Dengan tim yang terdiri dari arsitek yang berpengalaman dan konsultan struktur, kami siap memberikan solusi konstruksi yang terbaik untuk setiap proyek.</p>
+      <p>Sebagai perusahaan yang bergerak di bidang konstruksi, kami menghadirkan solusi mulai dari perencanaan, desain konseptual, perizinan, pembangunan, hingga fit-out dan perawatan, dengan pendekatan kolaboratif yang berfokus pada kebutuhan klien, kontrol anggaran yang transparan, serta ketepatan waktu pelaksanaan. Menggabungkan kreativitas desain dengan rekayasa yang presisi, tim kami berpengalaman menangani proyek hunian, komersial, ritel, da hospitality, menggunakan teknologi pendukung seperti pemodelan 3D untuk visualisasi, manajemen proyek terstruktur, dan standar mutu serta K3 yang ketat guna memastikan hasil yang estetis, fungsional, dan tahan lama. Kami juga mengutamakan pemilihan material berkualitas dan berkelanjutan, detail pengerjaan yang rapi, serta layanan purna jual yang responsif agar setiap ruang tidak hanya indah dipandang, tetapi juga nyaman ditinggali dan bernilai investasi tinggi.</p>
+      <div class="legal-badge">✓ Terdaftar resmi — Kemenkumham RI &amp; NIB OSS (Usaha Konstruksi)</div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="num" data-field="statYears">2026</div><div class="label mono">TAHUN BERDIRI</div></div>
+      <div class="stat"><div class="num" data-field="statProjects">5</div><div class="label mono">LINI LAYANAN UTAMA</div></div>
+      <div class="stat"><div class="num" data-field="statTeam">5</div><div class="label mono">TIM PROFESIONAL</div></div>
+      <div class="stat"><div class="num" data-field="statClients">5+</div><div class="label mono">MITRA & TOKO BANGUNAN</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="visimisi" id="visimisi">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow">ARAH KAMI</div>
+      <h2>Visi & Misi</h2>
+    </div>
+    <div class="vm-grid reveal">
+      <div class="vm-card">
+        <span class="vm-chip">Visi</span>
+        <ul>
+          <li>Menjadi perusahaan terdepan dalam industri konstruksi dan desain interior yang dikenal karena <strong>inovasi, kualitas, tanggung jawab, dan profesionalisme.</strong></li>
+          <li>Menjadi mitra tepercaya terdepan di bidang konstruksi dan desain interior di <strong>Yogyakarta dan Jawa Tengah</strong>, yang menciptakan ruang berkualitas, aman, dan berkelanjutan untuk meningkatkan kehidupan dan produktivitas.</li>
+        </ul>
+      </div>
+      <div class="vm-card">
+        <span class="vm-chip" style="background:var(--gold);">Misi</span>
+        <ul>
+          <li><strong>Berorientasi pada klien:</strong> menghadirkan solusi end-to-end (konsultasi, desain, konstruksi, dan pemeliharaan) yang personal dan transparan.</li>
+          <li><strong>Kualitas dan ketepatan:</strong> menerapkan standar mutu internasional, kontrol kualitas berlapis, serta komitmen selesai tepat waktu dan sesuai anggaran.</li>
+          <li><strong>Keberlanjutan:</strong> menggunakan material ramah lingkungan, mengoptimalkan efisiensi energi, serta mendukung sertifikasi bangunan hijau.</li>
+          <li><strong>Keunggulan desain:</strong> merancang interior yang fungsional, estetis, dan kontekstual — mengintegrasikan ergonomi, identitas merek, dan pengalaman pengguna.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="tim">
+  <div class="wrap">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <div class="eyebrow">TIM KAMI</div>
+      <h2>Meet The Team</h2>
+      <p>Tim kecil dengan tanggung jawab jelas — dari pengawasan usaha, keuangan, pemasaran, hingga drafter &amp; surveyor di lapangan.</p>
+    </div>
+    <div class="org-chart reveal">
+      <div class="org-card lead">
+        <div class="name">Yan Alva Wardana, A.Md</div>
+        <div class="role mono">KOMISARIS</div>
+      </div>
+      <div class="org-connector"></div>
+      <div class="org-card lead">
+        <div class="name">Himawan Akhmadin Saputra, S.Pi., M.M.</div>
+        <div class="role mono">DIREKTUR UTAMA</div>
+      </div>
+      <div class="org-connector"></div>
+      <div class="org-level">
+        <div class="org-card">
+          <div class="name">Qurrota A'yun, S.Pd</div>
+          <div class="role mono">ADMIN KEUANGAN</div>
+        </div>
+        <div class="org-card">
+          <div class="name">Chairil Nur Hidayat</div>
+          <div class="role mono">DRAFTER & SURVEYOR</div>
+        </div>
+        <div class="org-card">
+          <div class="name">Agung Putra, ST</div>
+          <div class="role mono">SENIOR ADVERTISING</div>
+        </div>
+        <div class="org-card">
+          <div class="name">Suparyono</div>
+          <div class="role mono">PENGAWAS PROYEK</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="portfolio" id="proyek">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">PROYEK KAMI</div>
+      <h2>Karya yang berbicara lebih dari kata. Jelajahi proyek kami satu per satu.</h2>
+      <p>Sebagian hasil rancangan dan pembangunan rumah tinggal, perumahan, hingga desain interior yang telah kami kerjakan. Geser untuk melihat lebih banyak dokumentasi hasil rancangan dan pengerjaan yang telah kami selesaikan.</p>
+    </div>
+    <div class="project-tabs" id="projectTabs"></div>
+ 
+    <div class="project-title-bar reveal">
+      <h3 id="projectTitle">Proyek 01</h3>
+      <span id="projectMeta"></span>
+    </div>
+ 
+    <div class="portfolio-slider reveal">
+      <div class="slider-viewport">
+        <div class="slider-track" id="projectSliderTrack"></div>
+      </div>
+      <button class="slider-btn prev" id="prevSlide" aria-label="Sebelumnya">&#8592;</button>
+      <button class="slider-btn next" id="nextSlide" aria-label="Berikutnya">&#8594;</button>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </div>
+</section>
+
+<section class="clients">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">KLIEN & MITRA</div>
+      <h2>Our Satisfied Clients</h2>
+      <p>Dipercaya oleh toko bangunan dan mitra material di sekitar Yogyakarta.</p>
+    </div>
+    <div class="client-logo-grid reveal">
+      <div class="client-logo-card"><img src="images/QhomeMart.png" alt="Logo Qhomemart"><span>Qhomemart</span></div>
+      <div class="client-logo-card"><img src="images/TransHome.png" alt="Logo Trans Home"><span>Trans Home</span></div>
+      <div class="client-logo-card"><img src="images/CatLancar.png" alt="Logo Toko Cat Lancar"><span>Toko Cat Lancar</span></div>
+      <div class="client-logo-card"><img src="images/PT.IBI.png" alt="Logo PT Inti Baja Indonesia"><span>PT. Inti Baja Indonesia</span></div>
+      <div class="client-logo-card"><img src="images/CatAbadi.png" alt="Logo Toko Cat Warna Abadi"><span>Toko Cat Warna Abadi</span></div>
+      <div class="client-logo-card"><img src="images/WaskitaPro.png" alt="Logo Waskita Pro"><span>Waskita Pro</span></div>
+      <div class="client-logo-card"><img src="images/SinarBuana.png" alt="Logo Sinar Buana"><span>Sinar Buana</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontak">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">KONTAK</div>
+      <h2>Mari diskusikan proyek Anda.</h2>
+      <p>Untuk konsultasi desain, estimasi anggaran, hingga eksekusi renovasi yang rapi dan tepat waktu — tim kami siap menjadwalkan survei awal dan memberikan penawaran tanpa komitmen.</p>
+    </div>
+    <div class="contact-inner reveal">
+      <div class="contact-card">
+        <h3>Informasi Kontak</h3>
+        <div class="contact-row">
+          <span class="ic">📍</span>
+          <div class="txt"><strong>Alamat</strong><span data-field="address">Purwanggan PA.I RT 33, RW 07 No. 537, Pakualaman, Yogyakarta 55112</span></div>
+        </div>
+        <div class="contact-row">
+          <span class="ic">✉️</span>
+          <div class="txt"><strong>Email</strong><a data-field="emailLink" href="#"></a></div>
+        </div>
+        <div class="contact-row">
+          <span class="ic">📞</span>
+          <div class="txt"><strong>WhatsApp</strong><a data-field="waLinkText" href="#"></a></div>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe data-field="mapEmbed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span data-field="footerText">© 2026 CV. Alva Makmur Sejahtera. Semua hak dilindungi.</span>
+    <div class="footer-links">
+      <a href="#top">BERANDA</a>
+      <a href="#tentang">TENTANG</a>
+      <a href="#layanan">LAYANAN</a>
+      <a href="#tim">TIM</a>
+      <a href="#kontak">KONTAK</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   KONFIGURASI PERUSAHAAN — EDIT DI SINI SAJA
+   Ganti semua nilai di bawah ini sesuai data perusahaan kamu.
+   Nomor WhatsApp gunakan format: 62xxxxxxxxxx (tanpa tanda + atau spasi)
+   ========================================================================== */
+const CONFIG = {
+  companyNameShort: "CV. Alva Makmur Sejahtera",
+  companyTagline:   "KONSTRUKSI & DESAIN INTERIOR",
+  waNumber:         "6282230712919",
+  waMessage:        "Halo CV. Alva Makmur Sejahtera, saya ingin tanya tentang jasa konstruksi/desain interior. Minta informasi detail ya. Terima kasih.",
+  email:            "alvamakmursejahtera@gmail.com",
+  address:          "Jl. Bausasran, Bausasran, Kec. Danurejan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55166",
+  mapEmbedUrl:      "https://maps.google.com/maps?q=CV+ALVA+MAKMUR+SEJAHTERA&t=m&z=16&output=embed&iwloc=near",
+  statYears:        "2026",
+  statProjects:     "5",
+  statTeam:         "5",
+  statClients:      "5+",
+  footerYear:       "2026"
+};
+/* ========================================================================== */
+
+/* ==========================================================================
+   KONFIGURASI PROYEK — EDIT DI SINI SAJA
+   Ada 14 slot proyek (Proyek 01 s/d Proyek 14). Untuk tiap proyek, isi:
+   - name   : nama tombol pemilih (contoh: "Proyek 01" atau "Rumah Pak Budi")
+   - meta   : keterangan singkat di sebelah judul (contoh lokasi/tahun), boleh dikosongkan ""
+   - images : daftar foto proyek tsb. Tiap foto punya src, alt, dan label
+              (label = keterangan yang muncul di pojok bawah foto, contoh "Tampak Depan").
+   Simpan foto-foto proyek di folder "images/" satu folder dengan file ini.
+   Kalau sebuah proyek belum punya foto sendiri, silakan sementara pakai foto
+   dari proyek lain sebagai placeholder lalu ganti nanti.
+   ========================================================================== */
+const PROJECTS = [
+  { name:"Proyek 01", meta:"", images:[
+    {src:"images/Cover.png", alt:"Proyek 01 tampak depan", label:"Tampak Depan"},
+  ]},
+  { name:"Proyek 02", meta:"", images:[
+    {src:"images/P1FULL.png", alt:"Proyek 02 tampak dua rumah", label:"Tampak Dua Rumah"},
+    {src:"images/P1D1.png", alt:"Proyek 02 desain pertama", label:"Desain Pertama"},
+    {src:"images/P1D2.png", alt:"Proyek 02 desain kedua", label:"Desain Kedua"}
+  ]},
+  { name:"Proyek 03", meta:"", images:[
+    {src:"images/P2DEPAN.png", alt:"Proyek 03 tampak depan", label:"Tampak Depan"},
+    {src:"images/P2KANAN.png", alt:"Proyek 03 tampak kanan", label:"Tampak Kanan"},
+    {src:"images/P2KIRI.png", alt:"Proyek 03 tampak kiri", label:"Tampak Kiri"}  
+  ]},
+  { name:"Proyek 04", meta:"", images:[
+    {src:"images/P3DEPAN.png", alt:"Proyek 04 tampak depan", label:"Tampak Depan"},
+    {src:"images/P3KANAN.png", alt:"Proyek 04 tampak kanan", label:"Tampak Kanan"},
+    {src:"images/P3KIRI.png", alt:"Proyek 04 tampak kiri", label:"Tampak Kiri"},
+    {src:"images/P3KNNATAS.png", alt:"Proyek 04 tampak kanan atas", label:"Tampak Kanan Atas"},
+    {src:"images/P3KRATAS.png", alt:"Proyek 04 tampak kiri atas", label:"Tampak Kiri Atas"},
+    {src:"images/P3ATAS.png", alt:"Proyek 04 tampak atas", label:"Tampak Atas"}
+  ]},
+  { name:"Proyek 05", meta:"", images:[
+    {src:"images/P4KANAN.png", alt:"Proyek 05 tampak kanan", label:"Tampak Kanan"},
+    {src:"images/P4KIRI.png", alt:"Proyek 05 tampak kiri", label:"Tampak Kiri"},
+    {src:"images/P4ATAS.png", alt:"Proyek 05 tampak atas", label:"Tampak Atas"},
+    {src:"images/P4A01.png", alt:"Proyek 05 tampak depan A-01", label:"Tampak Depan A-01"},
+    {src:"images/P4A02.png", alt:"Proyek 05 tampak depan A-02", label:"Tampak Depan A-02"}
+  ]},
+  { name:"Proyek 06", meta:"", images:[
+    {src:"images/P6DEPAN.png", alt:"Proyek 06 tampak depan", label:"Tampak Depan"},
+    {src:"images/P6KANAN.png", alt:"Proyek 06 tampak kanan", label:"Tampak Kanan"},
+    {src:"images/P6KIRI.png", alt:"Proyek 06 tampak kiri", label:"Tampak Kiri"},
+    {src:"images/P6BELAKANG.png", alt:"Proyek 06 tampak belakang", label:"Tampak Belakang"},
+    {src:"images/P6ATAS.png", alt:"Proyek 06 tampak atas", label:"Tampak Atas"}
+  ]},
+  { name:"Proyek 07", meta:"", images:[
+    {src:"images/P7DEPAN.png", alt:"Proyek 07 tampak depan", label:"Tampak Depan"},
+    {src:"images/P7KANAN.png", alt:"Proyek 07 tampak kanan", label:"Tampak Kanan"},
+    {src:"images/P7BELAKANG.png", alt:"Proyek 07 tampak belakang", label:"Tampak Belakang"},
+    {src:"images/P7ATAS.png", alt:"Proyek 07 tampak atas", label:"Tampak Atas"}
+  ]},
+  { name:"Proyek 08", meta:"", images:[
+    {src:"images/P8DEPAN.png", alt:"Proyek 08 tampak depan", label:"Tampak Depan"},
+    {src:"images/P8KANAN.png", alt:"Proyek 08 tampak kanan", label:"Tampak Kanan"},
+    {src:"images/P8KIRI.png", alt:"Proyek 08 tampak kiri", label:"Tampak Kiri"},
+    {src:"images/P8BELAKANG.png", alt:"Proyek 08 tampak belakang", label:"Tampak Belakang"},
+    {src:"images/P8ATAS.png", alt:"Proyek 08 tampak atas", label:"Tampak Atas"}
+  ]}
+];
+/* ========================================================================== */
+
+(function applyConfig(){
+  const waLink = "https://wa.me/" + CONFIG.waNumber + "?text=" + encodeURIComponent(CONFIG.waMessage);
+
+  document.querySelectorAll('[data-field="companyNameShort"]').forEach(el=>{
+    const small = el.querySelector('small');
+    if(small){
+      el.firstChild.textContent = CONFIG.companyNameShort;
+      small.textContent = CONFIG.companyTagline;
+    } else {
+      el.textContent = CONFIG.companyNameShort;
+    }
+  });
+  document.querySelectorAll('[data-field="companyTagline"]').forEach(el=>{
+    if(el.tagName.toLowerCase() !== 'small') el.textContent = CONFIG.companyTagline;
+  });
+
+  document.querySelectorAll('[data-field="waLinkHero"]').forEach(el=> el.href = waLink);
+  document.querySelector('[data-field="waLinkText"]').href = waLink;
+  document.querySelector('[data-field="waLinkText"]').textContent = "+" + CONFIG.waNumber.replace(/(\d{2})(\d{3,4})(\d+)/, "$1 $2 $3");
+
+  const emailEl = document.querySelector('[data-field="emailLink"]');
+  emailEl.href = "mailto:" + CONFIG.email;
+  emailEl.textContent = CONFIG.email;
+
+  document.querySelector('[data-field="address"]').textContent = CONFIG.address;
+  document.querySelector('[data-field="mapEmbed"]').src = CONFIG.mapEmbedUrl;
+
+  document.querySelector('[data-field="statYears"]').textContent = CONFIG.statYears;
+  document.querySelector('[data-field="statProjects"]').textContent = CONFIG.statProjects;
+  document.querySelector('[data-field="statTeam"]').textContent = CONFIG.statTeam;
+  document.querySelector('[data-field="statClients"]').textContent = CONFIG.statClients;
+  document.querySelector('[data-field="footerText"]').textContent = "© " + CONFIG.footerYear + " " + CONFIG.companyNameShort + ". Semua hak dilindungi.";
+  document.title = CONFIG.companyNameShort + " — " + CONFIG.companyTagline;
+})();
+
+/* header scroll state */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('scrolled', window.scrollY > 40);
+}, {passive:true});
+
+/* mobile nav */
+const burger = document.getElementById('burgerBtn');
+const nav = document.getElementById('siteNav');
+burger.addEventListener('click', ()=> nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> nav.classList.remove('open')));
+
+/* reveal on scroll */
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.15});
+document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+/* project photo slider */
+(function projectSlider(){
+  const track = document.getElementById('projectSliderTrack');
+  if(!track) return;
+  const tabsWrap = document.getElementById('projectTabs');
+  const dotsWrap = document.getElementById('sliderDots');
+  const prevBtn = document.getElementById('prevSlide');
+  const nextBtn = document.getElementById('nextSlide');
+  const titleEl = document.getElementById('projectTitle');
+  const metaEl = document.getElementById('projectMeta');
+  const slider = track.closest('.portfolio-slider');
+ 
+  let projectIndex = 0;
+  let index = 0;
+  let dots = [];
+  let autoplay = null;
+ 
+  /* build the 14 project tabs once */
+  PROJECTS.forEach((p, i)=>{
+    const tab = document.createElement('button');
+    tab.type = 'button';
+    tab.className = 'project-tab' + (i === 0 ? ' active' : '');
+    tab.textContent = p.name;
+    tab.addEventListener('click', ()=> selectProject(i));
+    tabsWrap.appendChild(tab);
+  });
+  const tabs = Array.from(tabsWrap.children);
+ 
+  function selectProject(pi){
+    projectIndex = pi;
+    index = 0;
+    const project = PROJECTS[projectIndex];
+ 
+    tabs.forEach((t, ti)=> t.classList.toggle('active', ti === projectIndex));
+    titleEl.textContent = project.name;
+    metaEl.textContent = project.meta || '';
+ 
+    track.innerHTML = '';
+    project.images.forEach(img=>{
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.innerHTML = '<img src="' + img.src + '" alt="' + img.alt + '" fetchpriority="high" decoding="async">' +
+        '<div class="slide-cap"><span class="mono"></span><h4>' + img.label + '</h4></div>';
+      track.appendChild(slide);
+    });
+ 
+    dotsWrap.innerHTML = '';
+    project.images.forEach((_, i)=>{
+      const dot = document.createElement('button');
+      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Ke gambar ' + (i+1));
+      dot.addEventListener('click', ()=> goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    dots = Array.from(dotsWrap.children);
+ 
+    track.style.transform = 'translateX(0%)';
+    resetAutoplay();
+  }
+ 
+  function goTo(i){
+    const total = PROJECTS[projectIndex].images.length;
+    index = (i + total) % total;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach((d,di)=> d.classList.toggle('active', di === index));
+  }
+ 
+  function resetAutoplay(){
+    clearInterval(autoplay);
+    autoplay = setInterval(()=> goTo(index + 1), 5000);
+  }
+ 
+  prevBtn.addEventListener('click', ()=> goTo(index - 1));
+  nextBtn.addEventListener('click', ()=> goTo(index + 1));
+  slider.addEventListener('mouseenter', ()=> clearInterval(autoplay));
+  slider.addEventListener('mouseleave', resetAutoplay);
+
+  /* swipe support */
+  let startX = 0;
+  track.addEventListener('touchstart', (e)=> startX = e.touches[0].clientX, {passive:true});
+  track.addEventListener('touchend', (e)=>{
+    const diff = e.changedTouches[0].clientX - startX;
+    if(diff > 40) goTo(index - 1);
+    else if(diff < -40) goTo(index + 1);
+  }, {passive:true});
+
+  /* tampilkan proyek pertama saat halaman dibuka */
+  selectProject(0);
+})();
+</script>
+</body>
+</html>
